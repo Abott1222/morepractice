@@ -1,3 +1,5 @@
+'use strict';
+
 const siteContent = {
   "nav": {
     "nav-item-1": "Services",
@@ -37,6 +39,35 @@ const siteContent = {
   },
 };
 
+
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+logo.setAttribute('src', siteContent["nav"]["img-src"]);
+
+let cta = document.getElementById('cta-img');
+cta.setAttribute('src', siteContent['cta']['img-src']);
+
+let middleImg = document.getElementById('middle-img');
+middleImg.src = siteContent['main-content']['middle-img-src'];
+// let cta = document.querySelector('')
+// let cta = document.querySelector('')
+
+let navLinks = document.querySelectorAll("nav a");
+navLinks.forEach( (a,ix) => {
+  a.textContent = siteContent['nav'][`nav-item-${ix+1}`];
+});
+
+let ctaTextItems = document.querySelector(".cta-text").children;
+// ctaTextItems.forEach( item  => {
+//   let nodeName = item.nodeName.toLowerCase();
+//   item.textContent = siteContent['cta'][nodeName];
+// })
+for(let i=0; i<ctaTextItems.length; i++) {
+  let item = ctaTextItems[i];
+  let nodeName = item.nodeName.toLowerCase();
+  item.textContent = siteContent['cta'][nodeName];
+}
+
+let topContent = document.querySelector(".top-content .text-content").children;
+
+let bottomContent = document.querySelector(".bottom-content .text-content").children;
