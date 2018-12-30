@@ -54,6 +54,7 @@ middleImg.src = siteContent['main-content']['middle-img-src'];
 
 let navLinks = document.querySelectorAll("nav a");
 navLinks.forEach( (a,ix) => {
+  a.style.color = 'green';
   a.textContent = siteContent['nav'][`nav-item-${ix+1}`];
 });
 
@@ -68,6 +69,28 @@ for(let i=0; i<ctaTextItems.length; i++) {
   item.textContent = siteContent['cta'][nodeName];
 }
 
-let topContent = document.querySelector(".top-content .text-content").children;
+let topContent = document.querySelector(".bottom-content .text-content").children;
+for(let i=0; i<topContent.length; i++) {
+  let item = topContent[i];
+  let nodeName = item.nodeName.toLowerCase();
+  let content = nodeName === 'h4' ? siteContent['cta'][`features-${nodeName}`] : siteContent['cta']['features-content'];
+  console.log(content);
+}
 
 let bottomContent = document.querySelector(".bottom-content .text-content").children;
+for(let i=0; i<bottomContent.length; i++) {
+  let item = bottomContent[i];
+  let nodeName = item.nodeName.toLowerCase();
+  let content = nodeName === 'h4' ? siteContent['cta'][`features-${nodeName}`] : siteContent['cta']['features-content'];
+}
+
+let nav = document.querySelector('.nav');
+
+for(let i=0;i<2;i++) {
+  let tmp = document.createElement('a');
+  tmp.href = "#";
+  tmp.textContent = i === 0 ? "Purchase" : "Upgrade"
+  tmp.style.color = "green";
+  nav.appendChild(tmp);
+
+}
