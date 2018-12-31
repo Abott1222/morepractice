@@ -92,5 +92,4 @@ for(let i=0;i<2;i++) {
   tmp.textContent = i === 0 ? "Purchase" : "Upgrade"
   tmp.style.color = "green";
   nav.appendChild(tmp);
-
 }
